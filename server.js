@@ -8,6 +8,11 @@ app.post("/create-post", function(req, res) {
   });
   
 
+  app.get("/hello-world", function(req, res) {
+  res.send("Hello there!");
+});
+
+
 app.use(express.static("public"));
 
 app.listen(3000, function() {
