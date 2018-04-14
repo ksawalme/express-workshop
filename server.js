@@ -7,12 +7,22 @@ const formidable = require("express-formidable");
 
 app.use(express.static("public"));
 
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
 
+app.set('view engine', 'ejs');
+
+app.get('/about', function (req, res)
+{
+    res.render('about.html');
+});
 
 app.post("/create-post", function(req, res) {
     console.log(req.fields);
 
 });
+
+
 
 app.use(formidable());
 
