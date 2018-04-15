@@ -30,21 +30,24 @@ app.post("/create-post", function(req, res) {
          parsedFile[new Date().getTime()] = req.fields.blogpost;
         console.log(parsedFile);
         fs.writeFile(__dirname + "/data/posts.json",JSON.stringify(parsedFile), function(error) {
-
+        
         });
+
     });
 
 });
+app.get("/get-posts", function(req, res) {
+    res.sendFile(__dirname + "/data/posts.json",JSON.stringify(parsedFile), function(error) {
+
+        });
+        });
+    
 
 
-fs.writeFile(__dirname + "/data/text.json","tttt", function(error) {
 
-    // do something
-  });
-  
+
 
 
 app.listen(3000, function() {
     console.log("Server is listening on port 3000. Ready to accept requests!");
 });
-
